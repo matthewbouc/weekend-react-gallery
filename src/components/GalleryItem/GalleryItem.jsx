@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function GalleryItem({item}){
+function GalleryItem({item, putLikeButton}){
 
     const [isPicture, setIsPicture] = useState(true);
 
@@ -16,7 +16,8 @@ function GalleryItem({item}){
                     { isPicture && <img height="200px" src={item.path} /> }
                     { !isPicture && <p>{item.description}</p> }
                 </form>
-                    <h4>Likes: {item.likes}</h4>
+                <button onClick={()=> putLikeButton(item.id)} >Like This Picture</button>
+                <h4>Likes: {item.likes}</h4>
             </div>
         </>
     )

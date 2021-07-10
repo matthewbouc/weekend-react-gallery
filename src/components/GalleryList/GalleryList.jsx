@@ -1,11 +1,11 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
 
-function GalleryList({galleryItems}){
+function GalleryList({galleryItems, putLikeButton}){
     return(
         <>
             <div>
                 {galleryItems.map(item => (
-                    <GalleryItem key={item.id} item={item} />
+                    <GalleryItem putLikeButton={putLikeButton} key={item.id} item={item} />
                 ))}
             </div>
         </>

@@ -27,6 +27,17 @@ function App() {
         console.log('error in App GETting', error);
       })
     }
+
+    const putLikeButton = (pictureId) => {
+      axios.put(`/gallery/like/${pictureId}`)
+      .then(response => {
+        console.log('Success PUTing in App', response);
+        getGalleryItems();
+      })
+      .catch(error => {
+        console.log('error PUTting', error);
+      })
+    }
     
     return (
       <div className="App">
@@ -34,7 +45,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <GalleryList galleryItems={galleryItems} />
+        <GalleryList putLikeButton={putLikeButton} galleryItems={galleryItems} />
       </div>
     );
 }
