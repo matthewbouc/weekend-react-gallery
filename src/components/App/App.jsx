@@ -8,10 +8,14 @@ import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
 
+    /**
+     * Run GET request on page load.
+     */
     useEffect(() => {
       getGalleryItems();
     },[]);
 
+    //Allows state of galleryItems to change on Like button click and new item POST.
     let [galleryItems, setGalleryItems] = useState([]);
     
     /**
@@ -28,6 +32,11 @@ function App() {
       })
     }
 
+    /**
+     * Sends PUT request to server to update Likes for specific id. Originates in GalleryItem.jsx
+     * @param {Number} pictureId 
+     * @param {Number} pictureLikes 
+     */
     const putLikeButton = (pictureId, pictureLikes) => {
       axios.put(`/gallery/like/${pictureId}`, {likes: pictureLikes})
       .then(response => {

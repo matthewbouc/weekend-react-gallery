@@ -2,15 +2,33 @@ const { query } = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
-//BASE MODE // const galleryItems = require('../modules/gallery.data');
-
-// DO NOT MODIFY THIS FILE FOR BASE MODE
 
 
+/**
+ * GETs all rows from galleryItems TABLE, ordered by id.  See getGalleryItems() in App.jsx
+ */
+router.get('/', (req, res) => {
+    const queryText = `SELECT * FROM galleryItems ORDER BY id ASC;`;
+    pool.query(queryText)
+    .then(result => {
+        console.log('Database sending result: ', result);
+        res.send(result.rows);
+    })
+    .catch(error => {
+        console.log('Database GET failed', error);
+        res.sendStatus(500);
+    });
+});
+
+
+/**
+ * PUT request that updates the number of likes (by one) of a specific id.
+ * Originates in handleLikeButton() found in GalleryItem.jsx
+ */
 router.put('/like/:id', (req, res) => {
     const pictureId = req.params.id;
     const pictureLikes = req.body.likes;
-    console.log('req.body:',req.body, 'req.body.likes', req.body.likes);
+    //console.log('req.body:',req.body, 'req.body.likes', req.body.likes);
 
     const queryText = `UPDATE galleryItems SET likes=$1 WHERE id=$2;`;
     pool.query(queryText, [pictureLikes, pictureId])
@@ -24,6 +42,14 @@ router.put('/like/:id', (req, res) => {
     });
 });
 
+
+module.exports = router;
+
+
+
+
+//BASE MODE // const galleryItems = require('../modules/gallery.data');
+// DO NOT MODIFY THIS FILE FOR BASE MODE
 
 //BASE MODE// PUT Route
 // router.put('/like/:id', (req, res) => {
@@ -41,18 +67,3 @@ router.put('/like/:id', (req, res) => {
 // router.get('/', (req, res) => {
 //     res.send(galleryItems);
 //}); // END GET Route
-
-router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM galleryItems ORDER BY id ASC;`;
-    pool.query(queryText)
-    .then(result => {
-        console.log('Database sending result: ', result);
-        res.send(result.rows);
-    })
-    .catch(error => {
-        console.log('Database GET failed', error);
-        res.sendStatus(500);
-    });
-});
-
-module.exports = router;
