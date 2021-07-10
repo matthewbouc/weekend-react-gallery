@@ -6,6 +6,25 @@ const pool = require('../modules/pool.js');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
+
+router.put('/like/:id', (req, res) => {
+    const pictureId = req.params.id;
+    const pictureLikes = req.body.likes;
+    console.log('req.body:',req.body, 'req.body.likes', req.body.likes);
+
+    const queryText = `UPDATE galleryItems SET likes=$1 WHERE id=$2;`;
+    pool.query(queryText, [pictureLikes, pictureId])
+    .then(response => {
+        console.log('Success PUTting', response)
+        res.sendStatus(202);
+    })
+    .catch(error => {
+        console.log('ERROR PUTting', error);
+        res.sendStatus(500);
+    });
+});
+
+
 //BASE MODE// PUT Route
 // router.put('/like/:id', (req, res) => {
 //     console.log(req.params);
