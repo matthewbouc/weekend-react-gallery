@@ -28,10 +28,10 @@ function App() {
       })
     }
 
-    const putLikeButton = (pictureId) => {
-      axios.put(`/gallery/like/${pictureId}`)
+    const putLikeButton = (pictureId, pictureLikes) => {
+      axios.put(`/gallery/like/${pictureId}`, {likes: pictureLikes})
       .then(response => {
-        console.log('Success PUTing in App', response);
+        console.log('Success PUTting in App', response);
         getGalleryItems();
       })
       .catch(error => {

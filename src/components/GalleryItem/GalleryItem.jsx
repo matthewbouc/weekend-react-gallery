@@ -9,6 +9,11 @@ function GalleryItem({item, putLikeButton}){
         setIsPicture(!isPicture);
     }
 
+    const handleLikeButton = (itemId, currentLikes) => {
+        currentLikes += 1
+        putLikeButton(itemId, currentLikes)
+    }
+
     return (
         <>
             <div key={item.id}>
@@ -16,7 +21,7 @@ function GalleryItem({item, putLikeButton}){
                     { isPicture && <img height="200px" src={item.path} /> }
                     { !isPicture && <p>{item.description}</p> }
                 </form>
-                <button onClick={()=> putLikeButton(item.id)} >Like This Picture</button>
+                <button onClick={()=> handleLikeButton(item.id, item.likes)} >Like This Picture</button>
                 <h4>Likes: {item.likes}</h4>
             </div>
         </>
