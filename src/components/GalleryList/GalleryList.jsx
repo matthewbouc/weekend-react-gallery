@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import useStyles from "../UseStyles/UseStyles";
 
 
-function GalleryList({galleryItems, putLikeButton}){
+function GalleryList({galleryItems, putLikeButton, deleteTrashButton}){
     const classes = useStyles();
     return(
         <>
@@ -13,7 +13,7 @@ function GalleryList({galleryItems, putLikeButton}){
             {galleryItems.map(item => (
                 <Grid item xs={12} sm={6} md={4}>
                     <Card className={classes.card}>
-                        <GalleryItem putLikeButton={putLikeButton} key={item.id} item={item} />
+                        <GalleryItem putLikeButton={putLikeButton} deleteTrashButton={deleteTrashButton} key={item.id} item={item} />
                         <CardContent className={classes.cardContent}>                  
                   </CardContent>
                     </Card>

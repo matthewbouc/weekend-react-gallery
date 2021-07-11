@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './App.css';
 
+import AddIcon from '@material-ui/icons/Add';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -116,9 +117,15 @@ function App() {
                   </Typography>
                   <Grid container justifyContent="center">
                   <Grid item>
-                  <Button onClick={() => handlePicButton()} variant="contained" className={classes.button} >
-                    Add New Picture
+                  
+                  <Button
+                    onClick={() => handlePicButton()}
+                    variant="contained"
+                    className={classes.button} 
+                    startIcon={<AddIcon />}>
+                    Add Picture
                   </Button>
+                  
                   </Grid>
                   </Grid>
                     {isAddPic && <NewItem postNewPic={postNewPic}/>}
@@ -126,7 +133,7 @@ function App() {
               </div>
               <Container className={classes.cardGrid} maxWidth="md">
                 {/* End hero unit */}
-                <GalleryList galleryItems={galleryItems} putLikeButton={putLikeButton}/>
+                <GalleryList galleryItems={galleryItems} putLikeButton={putLikeButton} deleteTrashButton={deleteTrashButton}/>
               </Container>
             </main>
       {/* Footer */}

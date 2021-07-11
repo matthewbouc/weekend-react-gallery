@@ -3,19 +3,27 @@ import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import IconButton from '@material-ui/core/IconButton';
 
 import './GalleryItem.css';
 
 
-function GalleryItem({item, putLikeButton}){
+function GalleryItem({item, putLikeButton, deleteTrashButton}){
     //isPicture is used to toggle picture/text active.
     const [isPicture, setIsPicture] = useState(true);
-
     const [isHeartFull, setIsHeartFull] = useState(false);
+    const [isTrashButton, setIsTrashButton] = useState(false);
 
     const toggleHeart = () => {
       setIsHeartFull(!isHeartFull);
     }
+
+    const toggleTrash = () => {
+        setIsTrashButton(!isTrashButton);
+    }
+
     /**
      * Changes the state of isPicture when <form> is clicked.
      */
@@ -31,7 +39,11 @@ function GalleryItem({item, putLikeButton}){
      * @param {Number} itemId 
      */
     const handleLikeButton = (itemId) => {
-        putLikeButton(itemId)
+        putLikeButton(itemId);
+    }
+
+    const handleDeleteButton = (itemId) => {
+        deleteTrashButton(itemId);
     }
 
 
@@ -44,15 +56,29 @@ function GalleryItem({item, putLikeButton}){
                 </div>
                 <h2>Likes: {item.likes}</h2>
                 <CardActions>
-                <div onMouseEnter={()=> toggleHeart()}
-                        onMouseLeave={() => toggleHeart()}>
+                <IconButton
+                    onMouseEnter={()=> toggleHeart()}
+                    onMouseLeave={() => toggleHeart()}
+                >
                     { !isHeartFull && <FavoriteBorderRoundedIcon 
                         onClick={()=> handleLikeButton(item.id)}
                         color="secondary" fontSize="medium" />}
                     { isHeartFull && <FavoriteRoundedIcon 
                         onClick={()=> handleLikeButton(item.id)}
                         color="secondary" fontSize="medium" />}
-                </div>
+                </IconButton>
+                <IconButton
+                    onMouseEnter={()=> toggleTrash()}
+                    onMouseLeave={() => toggleTrash()}
+                >
+                    { !isTrashButton&& <DeleteOutlineIcon 
+                        onClick={()=> handleDeleteButton(item.id)}
+                        color="primary" fontSize="medium" />}
+                    { isTrashButton && <DeleteIcon
+                        onClick={()=> handleDeleteButton(item.id)}
+                        color="primary" fontSize="medium" />}
+                    
+                </IconButton>
                 </CardActions>
             </div>
         </>
