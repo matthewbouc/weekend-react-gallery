@@ -3,11 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     albumLayout: {
-      backgroundColor: '#482880',
+      backgroundColor: '#0276aa',
       color: 'white',
     },
     button: {
-      background: '#673ab7',
+      background: '#0276aa',
       color: 'white',
       marginBottom: '10px',
       boxShadow: '0 1px 3px 2px rgba(0, 0, 0, .3)',
@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme) => ({
     newForm: {
         margin: theme.spacing(1),
         width: '25ch',
-        background: '#8561c5',
+        background: '#03a9f4',
     },
     newFormButton: {
       margin: theme.spacing(1),
       width: '22ch',
-      background: '#651fff'
+      background: '#007bb2'
     },
     trashButton: {
       color: 'white',
