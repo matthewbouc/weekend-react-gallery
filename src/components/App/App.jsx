@@ -2,20 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './App.css';
+
 import AppBar from '@material-ui/core/AppBar';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 import GalleryList from '../GalleryList/GalleryList';
 import useStyles from '../UseStyles/UseStyles';
-
-
-
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import NewItem from '../NewItem/NewItem';
 
 
 function App() {
@@ -44,6 +41,16 @@ function App() {
       .catch(error => {
         console.log('error in App GETting', error);
       })
+    }
+
+    const postNewPic = () => {
+      axios.post('/gallery', (newPicture))
+      .then(response => {
+        getGalleryItems();
+      })
+      .catch(error => {
+        console.log('Error POSTing from App', error)
+      });
     }
 
     /**
@@ -103,6 +110,7 @@ function App() {
             </main>
       {/* Footer */}
       <footer className={classes.footer}>
+        <NewItem postNewPic={postNewPic}/>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Thanks for checking this far down!
         </Typography>
