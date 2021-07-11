@@ -70,6 +70,12 @@ function App() {
         console.log('error PUTting', error);
       })
     }
+
+    const [isAddPic, setIsAddPic] = useState(false);
+
+    const handlePicButton = () => {
+      setIsAddPic(!isAddPic);
+    }
     
     return (
       <>
@@ -94,12 +100,12 @@ function App() {
                   </Typography>
                   <Grid container justifyContent="center">
                   <Grid item>
-                  <Button variant="contained" className={classes.button} >
+                  <Button onClick={() => handlePicButton()} variant="contained" className={classes.button} >
                     Add New Picture
                   </Button>
                   </Grid>
                   </Grid>
-                    <NewItem postNewPic={postNewPic}/>
+                    {isAddPic && <NewItem postNewPic={postNewPic}/>}
                 </Container>
               </div>
               <Container className={classes.cardGrid} maxWidth="md">
