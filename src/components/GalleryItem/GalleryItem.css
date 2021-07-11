@@ -1,0 +1,16 @@
+h4 {
+    color: white;
+}
+
+.cardImage {
+    height: 300px;
+    width: auto;
+
+}
+
+.cardText {
+    height: 250px;
+    width: auto;
+    color: white;
+    font-size: 2em;
+}
