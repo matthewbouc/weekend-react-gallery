@@ -122,7 +122,8 @@ function App() {
                     onClick={() => handlePicButton()}
                     variant="contained"
                     className={classes.button} 
-                    startIcon={<AddIcon />}>
+                    startIcon={<AddIcon />}
+                  >
                     Add Picture
                   </Button>
                   

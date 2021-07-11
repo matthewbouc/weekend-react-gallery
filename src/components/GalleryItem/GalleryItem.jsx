@@ -6,11 +6,14 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import IconButton from '@material-ui/core/IconButton';
+import useStyles from '../UseStyles/UseStyles';
 
 import './GalleryItem.css';
 
 
 function GalleryItem({item, putLikeButton, deleteTrashButton}){
+    const classes = useStyles();
+
     //isPicture is used to toggle picture/text active.
     const [isPicture, setIsPicture] = useState(true);
     const [isHeartFull, setIsHeartFull] = useState(false);
@@ -59,25 +62,24 @@ function GalleryItem({item, putLikeButton, deleteTrashButton}){
                 <IconButton
                     onMouseEnter={()=> toggleHeart()}
                     onMouseLeave={() => toggleHeart()}
+                    onClick={()=> handleLikeButton(item.id)}
                 >
                     { !isHeartFull && <FavoriteBorderRoundedIcon 
-                        onClick={()=> handleLikeButton(item.id)}
+    
                         color="secondary" fontSize="medium" />}
                     { isHeartFull && <FavoriteRoundedIcon 
-                        onClick={()=> handleLikeButton(item.id)}
+                        
                         color="secondary" fontSize="medium" />}
                 </IconButton>
                 <IconButton
                     onMouseEnter={()=> toggleTrash()}
                     onMouseLeave={() => toggleTrash()}
+                    onClick={()=> handleDeleteButton(item.id)}
                 >
                     { !isTrashButton&& <DeleteOutlineIcon 
-                        onClick={()=> handleDeleteButton(item.id)}
-                        color="primary" fontSize="medium" />}
+                        fontSize="medium" className={classes.trashButton} />}
                     { isTrashButton && <DeleteIcon
-                        onClick={()=> handleDeleteButton(item.id)}
-                        color="primary" fontSize="medium" />}
-                    
+                        fontSize="medium" className={classes.trashButton} />}
                 </IconButton>
                 </CardActions>
             </div>

@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.grey[800],
       padding: theme.spacing(6),
     },
+    trashButton: {
+      color: 'white',
+    },
     heroButtons: {
       marginTop: theme.spacing(4),
     },
