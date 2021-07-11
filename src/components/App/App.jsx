@@ -6,11 +6,11 @@ import './App.css';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
+import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 
 import GalleryList from '../GalleryList/GalleryList';
 import useStyles from '../UseStyles/UseStyles';
@@ -21,15 +21,22 @@ function App() {
 
 
   const classes = useStyles();
-    /**
-     * Run GET request on page load.
-     */
+
+    //Run GET request on page load.
     useEffect(() => {
       getGalleryItems();
     },[]);
 
     //Allows state of galleryItems to change on Like button click and new item POST.
-    let [galleryItems, setGalleryItems] = useState([]);
+    const [galleryItems, setGalleryItems] = useState([]);
+    const [isAddPic, setIsAddPic] = useState(false);
+
+    /**
+     * Toggles the form imported from NewItem
+     */
+    const handlePicButton = () => {
+      setIsAddPic(!isAddPic);
+    }
     
     /**
      * GETs gallery items from /gallery and sets to galleryItems
@@ -45,6 +52,10 @@ function App() {
       })
     }
 
+    /**
+     * Takes in an object containing new picture path(url) and description. Sends POST
+     * request.  Runs getGalleryItems request on success.
+     */
     const postNewPic = (newPicture) => {
       console.log('in postNewPic', newPicture);
       axios.post('/gallery', (newPicture))
@@ -71,12 +82,7 @@ function App() {
       })
     }
 
-    const [isAddPic, setIsAddPic] = useState(false);
-
-    const handlePicButton = () => {
-      setIsAddPic(!isAddPic);
-    }
-    
+   
     return (
       <>
         <CssBaseline />
