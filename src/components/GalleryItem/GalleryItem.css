@@ -1,4 +1,4 @@
-h4 {
+h2 {
     color: white;
 }
 
@@ -9,8 +9,7 @@ h4 {
 }
 
 .cardText {
-    height: 250px;
+    height: 305px;
     width: auto;
     color: white;
-    font-size: 2em;
 }

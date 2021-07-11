@@ -41,9 +41,7 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.grey[800],
     padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
+    color: theme.palette.common.white,
   },
   cardGrid: {
     backgroundColor: theme.palette.grey[900],
@@ -101,11 +99,10 @@ function App() {
 
     /**
      * Sends PUT request to server to update Likes for specific id. Originates in GalleryItem.jsx
-     * @param {Number} pictureId 
-     * @param {Number} pictureLikes 
+     * @param {Number} pictureId
      */
-    const putLikeButton = (pictureId, pictureLikes) => {
-      axios.put(`/gallery/like/${pictureId}`, {likes: pictureLikes})
+    const putLikeButton = (pictureId) => {
+      axios.put(`/gallery/like/${pictureId}`)
       .then(response => {
         console.log('Success PUTting in App', response);
         getGalleryItems();
@@ -131,7 +128,7 @@ function App() {
               <Toolbar>
                 <CameraIcon className={classes.icon} />
                 <Typography variant="h6" color="inherit" noWrap>
-                  Album layout
+                  Photo Album
                 </Typography>
               </Toolbar>
             </AppBar>
@@ -139,27 +136,14 @@ function App() {
               {/* Hero unit */}
               <div className={classes.heroContent}>
                 <Container maxWidth="sm">
-                  <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                    Album layout
+                  <Typography component="h1" variant="h2" align="center" gutterBottom>
+                    React Album
                   </Typography>
-                  <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                    Something short and leading about the collection below—its contents, the creator, etc.
-                    Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                    entirely.
+                  <Typography variant="h5" align="center" paragraph>
+                    A summary of animals I've encountered online
                   </Typography>
                   <div className={classes.heroButtons}>
-                    <Grid container spacing={2} justifyContent="center">
-                      <Grid item>
-                        <Button variant="contained" color="primary">
-                          Main call to action
-                        </Button>
-                      </Grid>
-                      <Grid item>
-                        <Button variant="outlined" color="primary">
-                          Secondary action
-                        </Button>
-                      </Grid>
-                    </Grid>
+                    
                   </div>
                 </Container>
               </div>

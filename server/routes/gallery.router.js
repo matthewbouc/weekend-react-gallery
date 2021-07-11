@@ -27,11 +27,10 @@ router.get('/', (req, res) => {
  */
 router.put('/like/:id', (req, res) => {
     const pictureId = req.params.id;
-    const pictureLikes = req.body.likes;
     //console.log('req.body:',req.body, 'req.body.likes', req.body.likes);
 
-    const queryText = `UPDATE galleryItems SET likes=$1 WHERE id=$2;`;
-    pool.query(queryText, [pictureLikes, pictureId])
+    const queryText = `UPDATE galleryItems SET likes=(likes+1) WHERE id=$1;`;
+    pool.query(queryText, [pictureId])
     .then(response => {
         console.log('Success PUTting', response)
         res.sendStatus(202);
