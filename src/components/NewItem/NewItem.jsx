@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import './NewItem.css';
 
 function NewItem({postNewPic}) {
     const [newUrl, setNewUrl] = useState('');
@@ -18,11 +19,14 @@ function NewItem({postNewPic}) {
 
     return (
         <>
+            <div className="addForm">
             <form onSubmit={handleSubmit}>
-                <input value={newUrl} onChange={(event) => setNewUrl(event.target.value)} />
-                <input value={newDescription} onChange={(event) => setNewDescription(event.target.value)} />
+                <input value={newUrl} onChange={(event) => setNewUrl(event.target.value)} placeholder="Image URL"/>
+                <input value={newDescription} onChange={(event) => setNewDescription(event.target.value)} placeholder="Image Description" />
                 <input type="submit" value="Add Picture" />
             </form>
+            </div>
+            
         </>
     )
 }

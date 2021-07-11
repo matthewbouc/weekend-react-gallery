@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -90,9 +92,14 @@ function App() {
                   <Typography variant="h5" align="center" paragraph>
                     A summary of animals I've encountered online
                   </Typography>
-                  <div className={classes.heroButtons}>
-                    
-                  </div>
+                  <Grid container justifyContent="center">
+                  <Grid item>
+                  <Button variant="contained" className={classes.button} >
+                    Add New Picture
+                  </Button>
+                  </Grid>
+                  </Grid>
+                    <NewItem postNewPic={postNewPic}/>
                 </Container>
               </div>
               <Container className={classes.cardGrid} maxWidth="md">
@@ -102,10 +109,7 @@ function App() {
             </main>
       {/* Footer */}
       <footer className={classes.footer}>
-        <NewItem postNewPic={postNewPic}/>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Thanks for checking this far down!
-        </Typography>
+        
       </footer>
       </>
 
