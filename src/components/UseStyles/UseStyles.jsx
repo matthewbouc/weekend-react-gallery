@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     newFormButton: {
       margin: theme.spacing(1),
       width: '22ch',
-      background: '#007bb2'
+      background: '#1769aa'
     },
     trashButton: {
       color: 'white',
