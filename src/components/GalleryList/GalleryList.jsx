@@ -1,11 +1,13 @@
-import GalleryItem from "../GalleryItem/GalleryItem";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
+
+import GalleryItem from "../GalleryItem/GalleryItem";
 import useStyles from "../UseStyles/UseStyles";
 
 
 function GalleryList({galleryItems, putLikeButton, deleteTrashButton}){
+    //imports styling for material-ui components
     const classes = useStyles();
     return(
         <>
@@ -15,7 +17,7 @@ function GalleryList({galleryItems, putLikeButton, deleteTrashButton}){
                     <Card className={classes.card}>
                         <GalleryItem putLikeButton={putLikeButton} deleteTrashButton={deleteTrashButton} key={item.id} item={item} />
                         <CardContent className={classes.cardContent}>                  
-                  </CardContent>
+                        </CardContent>
                     </Card>
                 </Grid>
             ))}

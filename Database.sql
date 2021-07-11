@@ -13,4 +13,4 @@ INSERT INTO galleryItems (path, description)
 	('images/Cheetah.png', 'Photo of me a few weeks ago working on Koala Holla'), 
 	('images/Ostrich.png', 'Photo of an Ostrich about to nap a food bag'), 
 	('images/NotAntelope.png', 'Photo of a NotAntelope'),
-	('https://animals.sandiegozoo.org/sites/default/files/inline-images/emu_face.jpg', "I can't even..");
+	('https://animals.sandiegozoo.org/sites/default/files/inline-images/emu_face.jpg', 'I can''t even..');

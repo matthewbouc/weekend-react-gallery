@@ -1,9 +1,8 @@
+//USED FOR BASE MODE.  SET ASIDE WHEN INTRODUCING MATERIAL-UI
+
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './App.css';
-
-import GalleryList from '../GalleryList/GalleryList';
 
 
 function App() {
@@ -58,5 +57,3 @@ function App() {
       </div>
     );
 }
-
-export default App;

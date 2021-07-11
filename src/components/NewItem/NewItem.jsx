@@ -2,14 +2,19 @@ import {useState} from 'react';
 import './NewItem.css';
 
 function NewItem({postNewPic}) {
+
+    //States used to hold dynamic input states
     const [newUrl, setNewUrl] = useState('');
     const [newDescription, setNewDescription] = useState('');
 
+    //Object that will be POSTed to the database
     let newPicture = {
         path: newUrl,
         description: newDescription
     }
-
+    /**
+     * On click of Add Picture, POST newPicture and clear the text inputs.
+     */
     const handleSubmit = (event) => {
         event.preventDefault();
         postNewPic(newPicture);

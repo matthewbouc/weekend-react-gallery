@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     albumLayout: {
       backgroundColor: '#482880',
-      color: 'black',
+      color: 'white',
     },
     button: {
       background: '#673ab7',

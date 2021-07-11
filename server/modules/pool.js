@@ -12,11 +12,10 @@ const pool = new Pool({
     idleTimeoutMillis: 30000 // 30 seconds before timeout/cancel query
 });
 
-// Listener setup on the pool
+// Listener setup on the pool - used for troubleshooting
 pool.on('connect', () => {
     console.log('Connected to the database');
 });
-
 pool.on('error', (error) => {
     console.log('Error with database pool', error);
 });

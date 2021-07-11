@@ -5,6 +5,25 @@ const pool = require('../modules/pool.js');
 
 
 /**
+ * DELETE a specific picture, based on id, from the database
+ */
+router.delete('/:id', (req, res) => {
+    const pictureId = req.params.id;
+
+    const queryText = `DELETE FROM galleryItems WHERE id=$1;`;
+    pool.query(queryText, [pictureId])
+    .then(response => {
+        console.log('SUCCESS DELETEing', response);
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('ERROR DELETEing', error);
+        res.sendStatus(500);
+    })
+})
+
+
+/**
  * GETs all rows from galleryItems TABLE, ordered by id.  See getGalleryItems() in App.jsx
  */
 router.get('/', (req, res) => {
@@ -20,6 +39,9 @@ router.get('/', (req, res) => {
     });
 });
 
+/**
+ * POSTs a new object to the database - contains path(url) and text description
+ */
 router.post('/', (req, res) => {
     const newItem = req.body;
     console.log(newItem);
@@ -55,21 +77,6 @@ router.put('/like/:id', (req, res) => {
         res.sendStatus(500);
     });
 });
-
-router.delete('/:id', (req, res) => {
-    const pictureId = req.params.id;
-
-    const queryText = `DELETE FROM galleryItems WHERE id=$1;`;
-    pool.query(queryText, [pictureId])
-    .then(response => {
-        console.log('SUCCESS DELETEing', response);
-        res.sendStatus(200);
-    })
-    .catch(error => {
-        console.log('ERROR DELETEing', error);
-        res.sendStatus(500);
-    })
-})
 
 
 module.exports = router;
