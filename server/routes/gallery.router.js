@@ -20,6 +20,21 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+    const newItem = req.body;
+    console.log(newItem);
+    const queryText = `INSERT INTO galleryItems (path, description) VALUES ($1, $2);`;
+
+    pool.query(queryText, [newItem.path, newItem.description])
+    .then(response => {
+        console.log('Success POSTing to DB', response);
+        res.sendStatus(201);
+    })
+    .catch(error => {
+        console.log('Error POSTing to DB', error);
+        res.sendStatus(500);
+    })
+});
 
 /**
  * PUT request that updates the number of likes (by one) of a specific id.

@@ -43,7 +43,8 @@ function App() {
       })
     }
 
-    const postNewPic = () => {
+    const postNewPic = (newPicture) => {
+      console.log('in postNewPic', newPicture);
       axios.post('/gallery', (newPicture))
       .then(response => {
         getGalleryItems();

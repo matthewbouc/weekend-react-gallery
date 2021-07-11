@@ -4,13 +4,14 @@ function NewItem({postNewPic}) {
     const [newUrl, setNewUrl] = useState('');
     const [newDescription, setNewDescription] = useState('');
 
-    let newPic = {
-        url: newUrl,
+    let newPicture = {
+        path: newUrl,
         description: newDescription
     }
 
-    const handleSubmit = () => {
-        postNewPic(newPic);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        postNewPic(newPicture);
         setNewUrl('');
         setNewDescription('');
     }
