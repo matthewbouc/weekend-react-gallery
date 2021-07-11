@@ -1,7 +1,13 @@
 import {useState} from 'react';
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 import './NewItem.css';
+import useStyles from '../UseStyles/UseStyles';
 
 function NewItem({postNewPic}) {
+    const classes = useStyles();
 
     //States used to hold dynamic input states
     const [newUrl, setNewUrl] = useState('');
@@ -25,10 +31,12 @@ function NewItem({postNewPic}) {
     return (
         <>
             <div className="addForm">
-            <form onSubmit={handleSubmit}>
-                <input value={newUrl} onChange={(event) => setNewUrl(event.target.value)} placeholder="Image URL"/>
-                <input value={newDescription} onChange={(event) => setNewDescription(event.target.value)} placeholder="Image Description" />
-                <input type="submit" value="Add Picture" />
+            <form onSubmit={handleSubmit} className={classes.newForm} noValidate autoComplete="off">
+                <TextField value={newUrl} onChange={(event) => setNewUrl(event.target.value)} variant="filled" label="Picture URL"/>
+                <TextField value={newDescription} onChange={(event) => setNewDescription(event.target.value)} variant="filled" label="Image Description" />
+                <Button variant="contained" type="submit" color="primary" className={classes.newFormButton}>
+                Add To Album
+                </Button>
             </form>
             </div>
             

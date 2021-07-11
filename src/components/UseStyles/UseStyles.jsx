@@ -12,13 +12,15 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: '10px',
       boxShadow: '0 1px 3px 2px rgba(0, 0, 0, .3)',
     },
-    icon: {
-      marginRight: theme.spacing(2),
-      color: 'black',
-    },
-    heroContent: {
+    card: {
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
       backgroundColor: theme.palette.grey[800],
-      padding: theme.spacing(8, 0, 6),
+    },
+    cardContent: {
+      backgroundColor: theme.palette.grey[800],
+      flexGrow: 1,
       color: 'white',
     },
     cardGrid: {
@@ -29,27 +31,36 @@ const useStyles = makeStyles((theme) => ({
     cardMedia: {
       paddingTop: '56.25%', // 16:9
     },
-    cardContent: {
-      backgroundColor: theme.palette.grey[800],
-      flexGrow: 1,
-      color: 'white',
-    },
     footer: {
       backgroundColor: theme.palette.grey[800],
       padding: theme.spacing(6),
     },
-    trashButton: {
-      color: 'white',
-    },
     heroButtons: {
       marginTop: theme.spacing(4),
     },
-    card: {
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
+    heroContent: {
       backgroundColor: theme.palette.grey[800],
+      padding: theme.spacing(8, 0, 6),
+      color: 'white',
     },
+    icon: {
+      marginRight: theme.spacing(2),
+      color: 'black',
+    },
+    newForm: {
+        margin: theme.spacing(1),
+        width: '25ch',
+        background: '#8561c5',
+    },
+    newFormButton: {
+      margin: theme.spacing(1),
+      width: '22ch',
+      background: '#651fff'
+    },
+    trashButton: {
+      color: 'white',
+    },
+
   }))
 
   export default useStyles
