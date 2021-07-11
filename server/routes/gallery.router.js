@@ -56,6 +56,21 @@ router.put('/like/:id', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+    const pictureId = req.params.id;
+
+    const queryText = `DELETE FROM galleryItems WHERE id=$1;`;
+    pool.query(queryText, [pictureId])
+    .then(response => {
+        console.log('SUCCESS DELETEing', response);
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('ERROR DELETEing', error);
+        res.sendStatus(500);
+    })
+})
+
 
 module.exports = router;
 

@@ -69,7 +69,6 @@ function App() {
 
     /**
      * Sends PUT request to server to update Likes for specific id. Originates in GalleryItem.jsx
-     * @param {Number} pictureId
      */
     const putLikeButton = (pictureId) => {
       axios.put(`/gallery/like/${pictureId}`)
@@ -80,6 +79,17 @@ function App() {
       .catch(error => {
         console.log('error PUTting', error);
       })
+    }
+
+    const deleteTrashButton = (pictureId) => {
+      axios.delete(`gallery/${pictureId}`)
+      .then(response => {
+        console.log('Successful Delete', response);
+        getGalleryItems();
+      })
+      .catch(error => {
+        console.log('error DELETEing on App', error);
+      });
     }
 
    
