@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       backgroundColor: theme.palette.grey[800],
+      boxShadow: '0 1px 2px 1px rgba(255, 255, 255, 0.4)',
     },
     cardContent: {
       backgroundColor: theme.palette.grey[800],
