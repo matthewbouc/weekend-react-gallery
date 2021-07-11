@@ -1,0 +1,15 @@
+h2 {
+    color: white;
+}
+
+.cardImage {
+    height: 300px;
+    width: auto;
+
+}
+
+.cardText {
+    height: 305px;
+    width: auto;
+    color: white;
+}
