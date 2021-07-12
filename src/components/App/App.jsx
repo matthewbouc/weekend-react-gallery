@@ -118,7 +118,7 @@ function App() {
                   React Album
                 </Typography>
                 <Typography variant="h5" align="center" paragraph>
-                  A summary of animals I've encountered online
+                  My Life in Twelve Pictures
                 </Typography>
                 <Grid container justifyContent="center">
                 <Grid item>
