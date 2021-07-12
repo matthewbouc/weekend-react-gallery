@@ -3,7 +3,6 @@
 ## Description
 Weekend Challenge
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
 The goal of this project was to create a photo gallery using React to build the webpage.  The app needed to contain multiple components that eliminated redundant code.  Photo urls/paths were stored in a postgreSQL database and accessed via pg and axios routes.  Buttons to Like and Delete were included.  Styling was improved using material-ui.
 
 ## Screen Shot
