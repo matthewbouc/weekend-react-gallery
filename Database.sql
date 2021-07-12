@@ -9,7 +9,7 @@ CREATE TABLE galleryItems (
 );
 
 INSERT INTO galleryItems (path, description)
-	VALUES ('images/SharkAttack.jpeg', 'Many years ago, I was consumed by a shark. Eventually the shark was captured.  I was freed after everyone had a turn taking selfies.'),
+	VALUES ('images/SharkAttack.jpeg', 'Many years ago, a giant shark had swallowed me whole. Eventually the shark was captured.  I was freed after everyone had a turn taking selfies.'),
 ('images/cowboyMatt.jpeg', 'I roamed the wild west on my trusty steed. He took me places I never could have imagined. Those were the good days.'),
 ('images/FBIdays.jpeg', 'At a young age, the FBI recruited me.  The work was fairly tedious and boring. Upon meeting Janet Snakehole, I left the FBI to help her steal the President''s rubies.'),
 ('images/uncling.jpeg', 'My niece is teaching me a new game.  I''m losing horribly.  The rules never seem to be in my favor.'),
