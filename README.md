@@ -11,7 +11,6 @@ The goal of this project was to create a photo gallery using React to build the 
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
@@ -26,7 +25,6 @@ Link to software that is required to install the app (e.g. node).
 5. Run `npm run client` in your terminal - will open up a new browser tab.
 
 ## Usage
-How does someone use this application? Tell a user story here.
 
 1. The album gallery is stored on a PostgreSQL database using url or file paths, along with descriptions of the image, and a Like count.
 2. The pictures are pulled from the database and displayed in 'cards' using react and material-ui.
@@ -46,6 +44,7 @@ How does someone use this application? Tell a user story here.
 - React
 - PG
 - Material UI
+
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io)!
