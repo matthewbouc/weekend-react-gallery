@@ -47,4 +47,4 @@ The goal of this project was to create a photo gallery using React to build the 
 
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io)!
+Thanks to [Prime Digital Academy](https://www.primeacademy.io))!
