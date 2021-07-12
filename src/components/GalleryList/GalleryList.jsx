@@ -13,9 +13,9 @@ function GalleryList({galleryItems, putLikeButton, deleteTrashButton}){
         <>
             <Grid container spacing={4}>
             {galleryItems.map(item => (
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid key={item.id} item xs={12} sm={6} md={4}>
                     <Card className={classes.card}>
-                        <GalleryItem putLikeButton={putLikeButton} deleteTrashButton={deleteTrashButton} key={item.id} item={item} />
+                        <GalleryItem putLikeButton={putLikeButton} deleteTrashButton={deleteTrashButton} item={item} />
                         <CardContent className={classes.cardContent}>                  
                         </CardContent>
                     </Card>
